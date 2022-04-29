@@ -1,0 +1,16 @@
+name: CI Jest
+on: [push]
+jobs:
+  jest-run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+      - name: Install dependencies
+        run: npm install --save-dev
+      - name: Run Jest
+        run: npm run test
+
